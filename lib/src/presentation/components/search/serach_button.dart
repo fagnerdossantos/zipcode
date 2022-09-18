@@ -37,7 +37,13 @@ class _SearchButtonState extends State<SearchButton> {
         // Ckeck Internet Connection
         final isConnected = await InternetConnectionController().isConnected();
 
-        if (isConnected) {
+        if (!isConnected) {
+          // If there is no connection
+          errorMessage(
+            context: context,
+            message: "Internet não conectada!",
+          );
+        } else {
           // ZipCode
           final String zipCode = zipCodeController.text;
 
@@ -64,15 +70,10 @@ class _SearchButtonState extends State<SearchButton> {
             if (!mounted) return;
             modelBottomSheet(context, widget.size, model);
           }
-
-          zipCodeController.clear();
         }
 
-        // If there is no connection
-        errorMessage(
-          context: context,
-          message: "Internet não conectada!",
-        );
+        // Cleaning controller
+        zipCodeController.clear();
       },
 
       // Content
