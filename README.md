@@ -1,6 +1,7 @@
 # ZipCode
 
 A responsive **Flutter** application where you can search for Brazilian addresses using the postcode.
+> Following clean  code rules.
 
 ## Running the application
 In order to run the app you have to add the dependencies <br>
