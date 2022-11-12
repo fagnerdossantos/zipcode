@@ -2,12 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
 
+import 'package:zipcode/src/api/controllers/api_controller.dart';
+import 'package:zipcode/src/api/controllers/validations_controller.dart';
+import 'package:zipcode/src/api/models/types.dart';
 import 'package:zipcode/src/logic/controllers/address_controller.dart';
-import 'package:zipcode/src/logic/controllers/internet_connection_controller.dart';
-import 'package:zipcode/src/logic/controllers/validations_controller.dart';
 import 'package:zipcode/src/logic/models/address_model.dart';
-import 'package:zipcode/src/presentation/components/bottomSheet/model_bottom_sheet.dart';
-import 'package:zipcode/src/presentation/components/error/error_message.dart';
 import 'package:zipcode/src/presentation/components/search/search_box.dart';
 import 'package:zipcode/utils/consts.dart';
 
@@ -28,47 +27,33 @@ class _SearchButtonState extends State<SearchButton> {
     final double width = widget.size.width;
 
     // Controllers
-    final addressController = context.read<AddressController>();
-    final validationsController = context.read<ValidationsController>();
+    final connection = context.read<APIController>();
+    final validations = context.read<ValidationsController>();
+    final address = context.read<AddressController>();
 
     return GestureDetector(
       // Action
       onTap: () async {
+        // Defining the variables
+        late final bool isConnected, isValid;
+        late final APIResponse response;
+        late final AddressModel model;
+        final String zipCode = zipCodeController.text;
+
         // Ckeck Internet Connection
-        final isConnected = await InternetConnectionController().isConnected();
+        isConnected = await validations.isConnected();
 
-        if (!isConnected) {
-          // If there is no connection
-          errorMessage(
-            context: context,
-            message: "Internet não conectada!",
-          );
-        } else {
-          // ZipCode
-          final String zipCode = zipCodeController.text;
+        if (isConnected) {
+          isValid = validations.validate(ctx: context, zipCode: zipCode);
 
-          if (!validationsController.zipCodeIsNotEmpty(zipCode)) {
-            errorMessage(
-              context: context,
-              message: "Digite um CEP!",
-            );
-          } else if (!validationsController.isNumeric(zipCode)) {
-            errorMessage(
-              context: context,
-              message: "Só são aceitos números!",
-            );
-          } else if (!validationsController.zipCodeLength(zipCode)) {
-            errorMessage(
-              context: context,
-              message: "O CEP tem que ser composto por 8 números!",
-            );
-          } else {
-            //
-            addressController.zipcode = zipCode;
-            final AddressModel model = await addressController.address();
+          if (isValid) {
+            response = await connection.fetch(zipCode: zipCode);
+            model = address.hasData(map: response);
 
+            // Calling rout and passing model as argument
             if (!mounted) return;
-            modelBottomSheet(context, widget.size, model);
+
+            Navigator.pushNamed(context, "/address", arguments: model);
           }
         }
 
@@ -90,7 +75,7 @@ class _SearchButtonState extends State<SearchButton> {
 
             // Border
             border: Border.all(color: black, width: 2),
-            borderRadius: radiusTwenty,
+            borderRadius: radius,
           ),
 
           child: const Center(

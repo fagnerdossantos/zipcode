@@ -31,7 +31,7 @@ class SearchBox extends StatelessWidget {
 
         // Border
         border: Border.all(color: black, width: 2),
-        borderRadius: radiusTwenty,
+        borderRadius: radius,
       ),
 
       child: TextField(
@@ -42,9 +42,8 @@ class SearchBox extends StatelessWidget {
         decoration: const InputDecoration(
           hintText: "Digite o CEP",
         ),
-
-        style: TextStyle(
-          fontSize: height * 0.03,
+        style: style(
+          size: height * 0.03,
         ),
       ),
     );

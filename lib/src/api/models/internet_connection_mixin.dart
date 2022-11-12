@@ -1,8 +1,7 @@
 import 'dart:io';
 
-class InternetConnectionController {
-
-  //
+mixin InternetConnection {
+  // Check connection
   Future<bool> isConnected() async {
     try {
       List<InternetAddress> result = await InternetAddress.lookup('example.com')

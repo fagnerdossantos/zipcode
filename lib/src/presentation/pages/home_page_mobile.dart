@@ -25,51 +25,43 @@ class HomePageMobile extends StatelessWidget {
           // Size
           height: height,
           width: width,
-      
+
           child: Column(
             children: [
               // Image Box
               HomeImage(
                 size: size,
               ),
-      
+
               // Give Some Space
               SizedBox(
                 height: height * .1,
               ),
-      
-              // Search Box
+
               SearchBox(
                 size: size,
               ),
-      
+
               // Give Some Space
               SizedBox(
                 height: height * .05,
               ),
-      
-              // Search Button
+
               SearchButton(
                 size: size,
               ),
-      
+
               // Give Some Space
               SizedBox(
                 height: height * .05,
               ),
-      
+
               // Hint Text
               Text(
                 "Pesquise um endereço usando o número do CEP",
-      
-                // Style
-                style: TextStyle(
-                  fontSize: height * .025,
-                  color: black,
-                  fontWeight: FontWeight.bold,
+                style: style(
+                  size: height * .025,
                 ),
-      
-                // Align
                 textAlign: TextAlign.center,
               ),
             ],
