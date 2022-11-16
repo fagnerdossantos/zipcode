@@ -18,15 +18,37 @@ class AddressPage extends StatelessWidget {
     return Scaffold(
       // App Bar
       appBar: AppBar(
-        title: const Text("Endereço"),
-        backgroundColor: green,
+        title: Text(
+          "Endereço",
+          style: textStyle(
+            color: white,
+            size: 28,
+          ),
+        ),
         centerTitle: true,
+        backgroundColor: deepPurple,
       ),
 
       // Content
-      body: AddressBuilder(
-        size: size,
-        model: model,
+      body: Column(
+        children: [
+          Container(
+            // BG Image
+            decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/images/local.png"),
+                  fit: BoxFit.cover),
+            ),
+
+            // Size
+            height: size.height * 0.8,
+
+            child: AddressBuilder(
+              size: size,
+              model: model,
+            ),
+          ),
+        ],
       ),
     );
   }

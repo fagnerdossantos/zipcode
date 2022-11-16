@@ -40,8 +40,8 @@ class AppWidget extends StatelessWidget {
         // Routes
         initialRoute: "/",
         routes: {
-          "/": (context) => const HomePageMobile(),
-          "/address": (context) => const AddressPage(),
+          "/": (_) => const HomePageMobile(),
+          "/address": (_) => const AddressPage(),
         },
 
         // Debug Banner (false)

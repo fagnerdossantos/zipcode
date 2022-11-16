@@ -7,7 +7,7 @@ import 'package:zipcode/src/api/controllers/validations_controller.dart';
 import 'package:zipcode/src/api/models/types.dart';
 import 'package:zipcode/src/logic/controllers/address_controller.dart';
 import 'package:zipcode/src/logic/models/address_model.dart';
-import 'package:zipcode/src/presentation/components/search/search_box.dart';
+import 'package:zipcode/src/presentation/components/search/serch_form.dart';
 import 'package:zipcode/utils/consts.dart';
 
 class SearchButton extends StatefulWidget {
@@ -64,29 +64,27 @@ class _SearchButtonState extends State<SearchButton> {
       // Content
       child: SizedBox(
         // Size
-        height: height * .05,
-        width: width * .30,
+        height: height * .06,
+        width: width * .35,
 
-        child: DecoratedBox(
-          // Styling
-          decoration: BoxDecoration(
-            // Color
-            color: white,
+        child: Card(
+          // Color
+          color: white,
 
-            // Border
-            border: Border.all(color: black, width: 2),
+          // Shape
+          shape: RoundedRectangleBorder(
             borderRadius: radius,
           ),
 
-          child: const Center(
+          // Elevation
+          elevation: 5,
+
+          child: Center(
             child: Text(
               "Pesquisar",
 
               // Style
-              style: TextStyle(
-                color: black,
-                fontWeight: FontWeight.bold,
-              ),
+              style: textStyle(),
             ),
           ),
         ),

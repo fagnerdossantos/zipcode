@@ -13,7 +13,6 @@ class HomePageMobile extends StatelessWidget {
     // Get Screen Size
     final Size size = MediaQuery.of(context).size;
     final double height = size.height;
-    final double width = size.width;
 
     return Scaffold(
       // Background color
@@ -21,51 +20,34 @@ class HomePageMobile extends StatelessWidget {
 
       // Use the entire screen
       body: SingleChildScrollView(
-        child: SizedBox(
-          // Size
-          height: height,
-          width: width,
+        child: Column(
+          children: [
+            // Image Box
+            HomeImage(
+              size: size,
+            ),
 
-          child: Column(
-            children: [
-              // Image Box
-              HomeImage(
-                size: size,
-              ),
+            verticalSpace(space: height * .1),
 
-              // Give Some Space
-              SizedBox(
-                height: height * .1,
-              ),
+            SearchBox(
+              size: size,
+            ),
 
-              SearchBox(
-                size: size,
-              ),
+            verticalSpace(),
 
-              // Give Some Space
-              SizedBox(
-                height: height * .05,
-              ),
+            SearchButton(
+              size: size,
+            ),
 
-              SearchButton(
-                size: size,
-              ),
+            verticalSpace(),
 
-              // Give Some Space
-              SizedBox(
-                height: height * .05,
-              ),
-
-              // Hint Text
-              Text(
-                "Pesquise um endereço usando o número do CEP",
-                style: style(
-                  size: height * .025,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ],
-          ),
+            // Hint Text
+            Text(
+              "Digite um CEP para ver o endereço correspondente",
+              style: textStyle(),
+              textAlign: TextAlign.center,
+            ),
+          ],
         ),
       ),
     );

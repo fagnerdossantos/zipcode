@@ -23,7 +23,9 @@ class ValidationsController
     zipCodeLength = _model.zipCodeLength(zipCode);
 
     if (!zipCodeIsNotEmpty) {
-      errorMessage(context: ctx, message: "Digite um CEP!");
+      errorMessage(
+          context: ctx,
+          message: "O campo não pode ficar vazio. Por favor, digite um CEP!");
       return false;
     } else if (!isNumeric) {
       errorMessage(context: ctx, message: "Só são aceitos números!");

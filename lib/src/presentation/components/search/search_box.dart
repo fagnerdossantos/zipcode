@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:zipcode/src/presentation/components/search/serch_form.dart';
 import 'package:zipcode/utils/consts.dart';
-
-// Code Controller
-TextEditingController zipCodeController = TextEditingController();
 
 class SearchBox extends StatelessWidget {
   final Size size;
@@ -16,34 +14,23 @@ class SearchBox extends StatelessWidget {
     final double height = size.height;
     final double width = size.width;
 
-    return Container(
+    return SizedBox(
       // Size
-      height: height * .1,
+      height: height * .12,
       width: width * .9,
 
-      // Padding
-      padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
-
       // Styling
-      decoration: BoxDecoration(
-        // Color
+      child: Card(
         color: white,
+        elevation: 5,
+        shape: RoundedRectangleBorder(borderRadius: radius),
 
-        // Border
-        border: Border.all(color: black, width: 2),
-        borderRadius: radius,
-      ),
+        // Padding
+        child: const Padding(
+          padding: EdgeInsets.fromLTRB(10, 20, 10, 0),
 
-      child: TextField(
-        // Controller
-        controller: zipCodeController,
-
-        //
-        decoration: const InputDecoration(
-          hintText: "Digite o CEP",
-        ),
-        style: style(
-          size: height * 0.03,
+          // Content
+          child: SearchForm(),
         ),
       ),
     );

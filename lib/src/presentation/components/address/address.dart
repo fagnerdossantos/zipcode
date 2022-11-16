@@ -21,7 +21,7 @@ class Address extends StatelessWidget {
 
         // Styling
         decoration: BoxDecoration(
-          color: green,
+          color: deepPurple.withOpacity(0.8),
           borderRadius: BorderRadius.circular(
             50,
           ),
@@ -30,7 +30,7 @@ class Address extends StatelessWidget {
         child: Center(
           child: Text(
             data,
-            style: style(color: white, size: 22),
+            style: textStyle(color: white, size: 28),
           ),
         ),
       ),
