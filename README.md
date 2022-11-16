@@ -11,10 +11,15 @@ flutter pub get
 ```
 
 ## Video
+> Galaxy a52s
+> Searching address
 
-https://user-images.githubusercontent.com/61123877/190869025-143d4437-a7cd-4183-9f33-5bfd978c8430.mp4
+https://user-images.githubusercontent.com/61123877/202251251-2a5d0881-55a2-4fc7-8cf8-292ffa136ae2.mp4
 
+> Errors
+> 
+https://user-images.githubusercontent.com/61123877/202251305-5161d541-a074-4aad-a92b-bb6c2852d911.mp4
 
 ## Specifications
 Using _**ViaCep API**_ <br>
-Packages _**http: 0.13.5 and provider: 6.0.3**_
+Packages _**http and provider**_
