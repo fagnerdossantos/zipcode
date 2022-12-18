@@ -1,3 +1,5 @@
+<a href="https://github.com/fagnerdossantos/zipcode#readme"> English-US Versão </a> 
+
 # Busca CEP
 
 Este é um aplicativo simples desenvolvido em Flutter que permite ao usuário buscar o endereço de um local através do CEP (Código de Endereçamento Postal) informado. Para isso, o aplicativo utiliza os pacotes `http` e `provider` para realizar uma chamada à uma API de busca de endereços.
