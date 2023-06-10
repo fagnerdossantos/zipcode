@@ -1,6 +1,6 @@
-import 'package:flutter/widgets.dart';
+import 'package:flutter/widgets.dart' show runApp;
 
-import 'package:zipcode/src/app_widget.dart';
+import 'package:zipcode/src/screen/app_widget.dart';
 
 void main() {
   runApp(const AppWidget());
