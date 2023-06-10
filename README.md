@@ -1,7 +1,6 @@
-<a href="https://github.com/fagnerdossantos/zipcode/blob/main/README-PT.md"> Portuguese-BR version </a> 
 # ZipCode
 
-This is a simple application developed in Flutter that allows the user to search for the address of a place through the zip code (Postal Address Code) entered. This application uses the `http` and `provider` packages to make a call to an address search API.
+This is a simple application developed in Flutter that allows the user to search for the address of a place through the zip code (Postal Address Code) entered. This application uses the `http` and `provider` packages to make a call to an address search API. Based in MVVM and Clean code structure. 
 
 ## How to use
 To use the app, just follow these steps:
