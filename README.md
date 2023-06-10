@@ -25,13 +25,12 @@ In order to run the app, follow these steps:
 
 ## Video
 > Galaxy a52s
-> Looking for it
+> Runnig
 
-https://user-images.githubusercontent.com/61123877/202251251-2a5d0881-55a2-4fc7-8cf8-292ffa136ae2.mp4
+https://github.com/fagnerdossantos/zipcode/assets/61123877/9aefe8f1-cc95-445c-8ff4-31962f6b0732
 
 > Errors
-> 
-https://user-images.githubusercontent.com/61123877/202251305-5161d541-a074-4aad-a92b-bb6c2852d911.mp4
 
+https://github.com/fagnerdossantos/zipcode/assets/61123877/b27c38a3-2e62-48ad-a7bc-b55b968d9b8c
 
 > __This application uses the ViaCep address search API to perform searches.__
